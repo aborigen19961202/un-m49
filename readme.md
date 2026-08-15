@@ -185,6 +185,9 @@ This package is safe.
 
 ## Related
 
+*   [`country-normalizer`](https://github.com/aborigen19961202/agent-skills/tree/main/skills/country-normalizer)
+    — portable Agent Skill for normalizing country and geographic references
+    with a compact local index generated from this dataset
 *   [`wooorm/bcp-47`](https://github.com/wooorm/bcp-47)
     — parse and stringify BCP 47 language tags
 *   [`wooorm/bcp-47-match`](https://github.com/wooorm/bcp-47-match)
