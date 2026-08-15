@@ -1,21 +1,41 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {unM49} from './index.js'
+import {toIso3166, unM49} from './index.js'
 
 test('m49', function () {
   assert.ok(Array.isArray(unM49), 'should be an `array`')
 
-  const gbr = unM49.find((d) => d.code === '826')
-  assert(gbr)
+  const ukraine = unM49.find((d) => d.code === '804')
+  assert(ukraine)
   assert.deepEqual(
-    gbr,
+    ukraine,
     {
       type: 4,
-      name: 'United Kingdom of Great Britain and Northern Ireland',
-      code: '826',
-      iso3166: 'GBR',
-      parent: '154'
+      name: 'Ukraine',
+      code: '804',
+      iso3166: 'UKR',
+      parent: '151'
     },
-    'should work'
+    'should include current entries without changing their shape'
   )
+
+  const historical = [
+    ['810', 'USSR', 'SUN'],
+    ['200', 'Czechoslovakia', 'CSK'],
+    ['278', 'German Democratic Republic', 'DDR'],
+    ['890', 'Socialist Federal Republic of Yugoslavia', 'YUG']
+  ]
+
+  for (const [code, name, iso3166] of historical) {
+    const entry = unM49.find((d) => d.code === code)
+    assert(entry)
+    assert.deepEqual(entry, {
+      type: 4,
+      name,
+      code,
+      iso3166,
+      historical: true
+    })
+    assert.equal(toIso3166[code], iso3166)
+  }
 })

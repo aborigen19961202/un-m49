@@ -18,6 +18,8 @@
  *   ISO 3166-1 alpha-3 code, if `type` represents a country or area (example: `'GBR'`).
  * @property {string|undefined} [parent]
  *   Code of parent region, if `type` does not represent the planet (example: `'154'`).
+ * @property {true|undefined} [historical]
+ *   Whether this code is retired or no longer in current use.
  */
 
 /**
@@ -285,6 +287,12 @@ export const unM49 = [
     parent: '009'
   },
   {
+    type: 2,
+    name: 'South-Central Asia',
+    code: '062',
+    historical: true
+  },
+  {
     type: 4,
     name: 'Bhutan',
     code: '064',
@@ -409,6 +417,13 @@ export const unM49 = [
     code: '124',
     iso3166: 'CAN',
     parent: '021'
+  },
+  {
+    type: 4,
+    name: 'Canton and Enderbury Islands',
+    code: '128',
+    iso3166: 'CTE',
+    historical: true
   },
   {
     type: 4,
@@ -586,6 +601,13 @@ export const unM49 = [
     parent: '145'
   },
   {
+    type: 4,
+    name: 'Czechoslovakia',
+    code: '200',
+    iso3166: 'CSK',
+    historical: true
+  },
+  {
     type: 2,
     name: 'Sub-Saharan Africa',
     code: '202',
@@ -646,6 +668,13 @@ export const unM49 = [
     code: '226',
     iso3166: 'GNQ',
     parent: '017'
+  },
+  {
+    type: 4,
+    name: 'Ethiopia',
+    code: '230',
+    iso3166: 'ETH',
+    historical: true
   },
   {
     type: 4,
@@ -768,6 +797,12 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Gaza Strip',
+    code: '274',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'State of Palestine',
     code: '275',
     iso3166: 'PSE',
@@ -779,6 +814,20 @@ export const unM49 = [
     code: '276',
     iso3166: 'DEU',
     parent: '155'
+  },
+  {
+    type: 4,
+    name: 'German Democratic Republic',
+    code: '278',
+    iso3166: 'DDR',
+    historical: true
+  },
+  {
+    type: 4,
+    name: 'Federal Republic of Germany',
+    code: '280',
+    iso3166: 'DEU',
+    historical: true
   },
   {
     type: 4,
@@ -978,6 +1027,13 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Johnston Island',
+    code: '396',
+    iso3166: 'JTN',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Kazakhstan',
     code: '398',
     iso3166: 'KAZ',
@@ -1173,6 +1229,13 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Midway Islands',
+    code: '488',
+    iso3166: 'MID',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Monaco',
     code: '492',
     iso3166: 'MCO',
@@ -1257,10 +1320,24 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Netherlands Antilles',
+    code: '530',
+    iso3166: 'ANT',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Curaçao',
     code: '531',
     iso3166: 'CUW',
     parent: '029'
+  },
+  {
+    type: 4,
+    name: 'Netherlands Antilles',
+    code: '532',
+    iso3166: 'ANT',
+    historical: true
   },
   {
     type: 4,
@@ -1359,6 +1436,13 @@ export const unM49 = [
     code: '581',
     iso3166: 'UMI',
     parent: '057'
+  },
+  {
+    type: 4,
+    name: 'Pacific Islands (Trust Territory)',
+    code: '582',
+    iso3166: 'PCI',
+    historical: true
   },
   {
     type: 4,
@@ -1572,6 +1656,12 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Sark',
+    code: '680',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Saudi Arabia',
     code: '682',
     iso3166: 'SAU',
@@ -1656,6 +1746,13 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Democratic Yemen',
+    code: '720',
+    iso3166: 'YMD',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Spain',
     code: '724',
     iso3166: 'ESP',
@@ -1681,6 +1778,13 @@ export const unM49 = [
     code: '732',
     iso3166: 'ESH',
     parent: '015'
+  },
+  {
+    type: 4,
+    name: 'Sudan',
+    code: '736',
+    iso3166: 'SDN',
+    historical: true
   },
   {
     type: 4,
@@ -1831,6 +1935,13 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'USSR',
+    code: '810',
+    iso3166: 'SUN',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Egypt',
     code: '818',
     iso3166: 'EGY',
@@ -1842,6 +1953,12 @@ export const unM49 = [
     code: '826',
     iso3166: 'GBR',
     parent: '154'
+  },
+  {
+    type: 4,
+    name: 'Channel Islands',
+    code: '830',
+    historical: true
   },
   {
     type: 4,
@@ -1880,6 +1997,13 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'United States miscellaneous Pacific Islands',
+    code: '849',
+    iso3166: 'PUS',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'United States Virgin Islands',
     code: '850',
     iso3166: 'VIR',
@@ -1915,6 +2039,13 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Wake Island',
+    code: '872',
+    iso3166: 'WAK',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Wallis and Futuna Islands',
     code: '876',
     iso3166: 'WLF',
@@ -1930,9 +2061,30 @@ export const unM49 = [
   {
     type: 4,
     name: 'Yemen',
+    code: '886',
+    iso3166: 'YEM',
+    historical: true
+  },
+  {
+    type: 4,
+    name: 'Yemen',
     code: '887',
     iso3166: 'YEM',
     parent: '145'
+  },
+  {
+    type: 4,
+    name: 'Socialist Federal Republic of Yugoslavia',
+    code: '890',
+    iso3166: 'YUG',
+    historical: true
+  },
+  {
+    type: 4,
+    name: 'Serbia and Montenegro',
+    code: '891',
+    iso3166: 'SCG',
+    historical: true
   },
   {
     type: 4,
@@ -1956,6 +2108,7 @@ export const toIso3166 = {
   116: 'KHM',
   120: 'CMR',
   124: 'CAN',
+  128: 'CTE',
   132: 'CPV',
   136: 'CYM',
   140: 'CAF',
@@ -1975,6 +2128,7 @@ export const toIso3166 = {
   191: 'HRV',
   192: 'CUB',
   196: 'CYP',
+  200: 'CSK',
   203: 'CZE',
   204: 'BEN',
   208: 'DNK',
@@ -1983,6 +2137,7 @@ export const toIso3166 = {
   218: 'ECU',
   222: 'SLV',
   226: 'GNQ',
+  230: 'ETH',
   231: 'ETH',
   232: 'ERI',
   233: 'EST',
@@ -2002,6 +2157,8 @@ export const toIso3166 = {
   270: 'GMB',
   275: 'PSE',
   276: 'DEU',
+  278: 'DDR',
+  280: 'DEU',
   288: 'GHA',
   292: 'GIB',
   296: 'KIR',
@@ -2030,6 +2187,7 @@ export const toIso3166 = {
   384: 'CIV',
   388: 'JAM',
   392: 'JPN',
+  396: 'JTN',
   398: 'KAZ',
   400: 'JOR',
   404: 'KEN',
@@ -2057,6 +2215,7 @@ export const toIso3166 = {
   478: 'MRT',
   480: 'MUS',
   484: 'MEX',
+  488: 'MID',
   492: 'MCO',
   496: 'MNG',
   498: 'MDA',
@@ -2069,7 +2228,9 @@ export const toIso3166 = {
   520: 'NRU',
   524: 'NPL',
   528: 'NLD',
+  530: 'ANT',
   531: 'CUW',
+  532: 'ANT',
   533: 'ABW',
   534: 'SXM',
   535: 'BES',
@@ -2084,6 +2245,7 @@ export const toIso3166 = {
   578: 'NOR',
   580: 'MNP',
   581: 'UMI',
+  582: 'PCI',
   583: 'FSM',
   584: 'MHL',
   585: 'PLW',
@@ -2126,10 +2288,12 @@ export const toIso3166 = {
   706: 'SOM',
   710: 'ZAF',
   716: 'ZWE',
+  720: 'YMD',
   724: 'ESP',
   728: 'SSD',
   729: 'SDN',
   732: 'ESH',
+  736: 'SDN',
   740: 'SUR',
   744: 'SJM',
   748: 'SWZ',
@@ -2151,6 +2315,7 @@ export const toIso3166 = {
   800: 'UGA',
   804: 'UKR',
   807: 'MKD',
+  810: 'SUN',
   818: 'EGY',
   826: 'GBR',
   831: 'GGY',
@@ -2158,14 +2323,19 @@ export const toIso3166 = {
   833: 'IMN',
   834: 'TZA',
   840: 'USA',
+  849: 'PUS',
   850: 'VIR',
   854: 'BFA',
   858: 'URY',
   860: 'UZB',
   862: 'VEN',
+  872: 'WAK',
   876: 'WLF',
   882: 'WSM',
+  886: 'YEM',
   887: 'YEM',
+  890: 'YUG',
+  891: 'SCG',
   894: 'ZMB',
   '004': 'AFG',
   '008': 'ALB',

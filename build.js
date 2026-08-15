@@ -18,6 +18,8 @@
  *   ISO 3166-1 alpha-3 code, if `type` represents a country or area (example: `'GBR'`).
  * @property {string|undefined} [parent]
  *   Code of parent region, if `type` does not represent the planet (example: `'154'`).
+ * @property {true|undefined} [historical]
+ *   Whether this code is retired or no longer in current use.
  */
 
 import assert from 'node:assert/strict'
@@ -50,10 +52,16 @@ const headerToField = {
 // From big to small:
 const types = ['global', 'region', 'subregion', 'intermediate', 'area']
 const overview = 'https://unstats.un.org/unsd/methodology/m49/overview/'
+const methodology = 'https://unstats.un.org/unsd/methodology/m49/'
 
-const response = await fetch(overview)
-const text = await response.text()
-const tree = await fromHtml(text)
+const [overviewResponse, methodologyResponse] = await Promise.all([
+  fetch(overview),
+  fetch(methodology)
+])
+assert(overviewResponse.ok, 'expected UN M49 overview to load')
+assert(methodologyResponse.ok, 'expected UN M49 methodology to load')
+const tree = await fromHtml(await overviewResponse.text())
+const methodologyTree = await fromHtml(await methodologyResponse.text())
 
 const table = select('#downloadTableEN', tree)
 assert(table, 'expected table to exist')
@@ -130,6 +138,82 @@ while (++index < records.length) {
   }
 }
 
+// ISO alpha-3 codes published in the official UN M49 revisions.  Older
+// revisions 1 and 2 are scans, so keeping this small transcription here makes
+// generation deterministic instead of depending on OCR.  Revision 4 supplies
+// later assignments such as ANT; subsequent UN nomenclature supplies SCG.
+//
+// https://unstats.un.org/unsd/publication/SeriesM/Series_M49_Rev1%281975%29_en.pdf
+// https://unstats.un.org/unsd/publication/SeriesM/Series_M49_Rev2%281982%29_en.pdf
+// https://unstats.un.org/unsd/publication/SeriesM/Series_M49_Rev4%281999%29_en.pdf
+/** @type {Record<string, string>} */
+const historicalIso3166 = {
+  128: 'CTE',
+  200: 'CSK',
+  230: 'ETH',
+  278: 'DDR',
+  280: 'DEU',
+  396: 'JTN',
+  488: 'MID',
+  530: 'ANT',
+  532: 'ANT',
+  582: 'PCI',
+  720: 'YMD',
+  736: 'SDN',
+  810: 'SUN',
+  849: 'PUS',
+  872: 'WAK',
+  886: 'YEM',
+  890: 'YUG',
+  891: 'SCG'
+}
+
+for (const heading of [
+  'Codes not in current use since 1982:',
+  'Removed from the M49 numerical code list'
+]) {
+  const nodes = selectAll('h4, table', methodologyTree)
+  const headingIndex = nodes.findIndex(
+    (node) => node.tagName === 'h4' && toString(node).trim() === heading
+  )
+  assert(headingIndex >= 0, 'expected historical heading `' + heading + '`')
+  const historicalTable = nodes[headingIndex + 1]
+  assert(
+    historicalTable && historicalTable.tagName === 'table',
+    'expected historical table after `' + heading + '`'
+  )
+
+  for (const row of selectAll('tbody tr', historicalTable)) {
+    const cells = selectAll('td', row)
+    if (cells.length === 0) {
+      continue
+    }
+
+    assert(cells.length >= 2, 'expected historical code and name')
+    const codeText = toString(cells[0]).trim()
+    const name = toString(cells[1])
+      .trim()
+      .replace(/ \(now \d{3}\)$/, '')
+    const historicalCodes = codeText.match(/\d{3}/g)
+    assert(
+      historicalCodes,
+      'expected historical M49 code in `' + codeText + '`'
+    )
+
+    for (const code of historicalCodes) {
+      assert(!(code in byCode), 'expected historical code `' + code + '`')
+      byCode[code] = {
+        type: code === '062' ? 2 : 4,
+        name,
+        code,
+        iso3166: historicalIso3166[code],
+        historical: true,
+        stack: []
+      }
+    }
+  }
+}
+
 /** @type {Record<string, string>} */
 const toIso = {}
 
@@ -170,6 +254,8 @@ await fs.writeFile(
     " *   ISO 3166-1 alpha-3 code, if `type` represents a country or area (example: `'GBR'`).",
     ' * @property {string|undefined} [parent]',
     " *   Code of parent region, if `type` does not represent the planet (example: `'154'`).",
+    ' * @property {true|undefined} [historical]',
+    ' *   Whether this code is retired or no longer in current use.',
     ' */',
     '',
     '/**',

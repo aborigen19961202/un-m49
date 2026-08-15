@@ -27,6 +27,9 @@ Info on [UN M49][m49].
 
 This package contains info on UN M49 (Standard Country or Area Codes for
 Statistical Use).
+This fork also includes the historical and retired codes officially listed by
+the United Nations, such as `200` (Czechoslovakia), `810` (USSR), and `890`
+(Socialist Federal Republic of Yugoslavia).
 UN M49 is similar to ISO 3166 (the `GB` in `en-GB`).
 The difference is that ISO 3166 uses alphabetical codes based on how a region is
 called by a group of people, whereas UN M49 uses numerical codes.
@@ -127,6 +130,13 @@ Object with the following properties:
 *   `parent` (`string?`)
     — code of parent region, if `type` does not represent the planet
     (example: `'154'`)
+*   `historical` (`true?`)
+    — present and set to `true` when the code is retired or no longer in current
+    use; current entries do not have this property for backwards compatibility
+
+Historical entries have no `parent` when the current UN source does not define
+a current hierarchy for them.  Their `iso3166` value, when present, is the
+official alpha-3 code published for that entity in the relevant UN M49 revision.
 
 #### `Type`
 
@@ -145,7 +155,9 @@ Object with the following properties:
 
 ### `toIso3166`
 
-Map of UN M49 codes to ISO 3166-1 alpha-3 codes (`Record<string, string>`).
+Map of current and historical UN M49 codes to ISO 3166-1 alpha-3 codes
+(`Record<string, string>`), where the United Nations publishes an unambiguous
+mapping.
 
 ## Types
 
