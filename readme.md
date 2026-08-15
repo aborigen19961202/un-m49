@@ -185,6 +185,9 @@ This package is safe.
 
 ## Related
 
+*   [`aborigen19961202/country-normalizer`](https://github.com/aborigen19961202/country-normalizer)
+    — Codex skill for normalizing country and geographic references with a
+    compact local index generated from this dataset
 *   [`wooorm/bcp-47`](https://github.com/wooorm/bcp-47)
     — parse and stringify BCP 47 language tags
 *   [`wooorm/bcp-47-match`](https://github.com/wooorm/bcp-47-match)
