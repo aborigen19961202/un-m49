@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "scope": "Official country or area codes retired before the current UN M49 historical tables. Name-only changes, special-purpose codes 896-999, and reused numerical codes are not emitted as supplemental runtime entries.",
+  "sources": [
+    {
+      "id": "m49-1970",
+      "edition": "Series M No. 49",
+      "year": 1970,
+      "url": "https://unstats.un.org/unsd/publication/SeriesM/Series_M49_%281970%29_en-fr.pdf",
+      "sha256": "26e951497d2dd8654700c73afe8f678245d5a52cb7f4be64f0ce037dfcb1191d",
+      "format": "image scan",
+      "countryOrAreaPages": "PDF pages 10-16",
+      "abbreviationPages": "PDF pages 35-41"
+    },
+    {
+      "id": "m49-1975",
+      "edition": "Series M No. 49, Rev. 1",
+      "year": 1975,
+      "url": "https://unstats.un.org/unsd/publication/SeriesM/Series_M49_Rev1%281975%29_en.pdf",
+      "sha256": "aa1bce444c2678582343cc3f19c302b07bc6dc402cc6f421b9bc9351cb794abc",
+      "format": "image scan",
+      "countryOrAreaPages": "PDF pages 7-13"
+    },
+    {
+      "id": "m49-1982",
+      "edition": "Series M No. 49, Rev. 2",
+      "year": 1982,
+      "url": "https://unstats.un.org/unsd/publication/SeriesM/Series_M49_Rev2%281982%29_en.pdf",
+      "sha256": "435d73a36759dc5194d890ce4a9ca8a6f549b7cebd41f96025588c31871f4624",
+      "format": "image scan",
+      "countryOrAreaPages": "PDF pages 8-11"
+    },
+    {
+      "id": "m49-1996",
+      "edition": "Series M No. 49, Rev. 3",
+      "year": 1996,
+      "url": "https://unstats.un.org/unsd/publication/SeriesM/Series_M49_Rev3%281996%29_en.pdf",
+      "sha256": "c5dbc9b8bf931a7ea2de1e44bbadd4b0ede4d6fa0dda6467fec45943e39e1b1a",
+      "format": "text PDF",
+      "changePages": "PDF pages 31-33"
+    },
+    {
+      "id": "m49-1999",
+      "edition": "Series M No. 49, Rev. 4",
+      "year": 1999,
+      "url": "https://unstats.un.org/unsd/publication/SeriesM/Series_M49_Rev4%281999%29_en.pdf",
+      "sha256": "1f806ff21a5110adcc464a9b0028b44ea8ad0a1a04be6ec72e4375e5fd0ff3b2",
+      "format": "text PDF",
+      "changePages": "PDF pages 48-51"
+    }
+  ],
+  "supplementalEntries": [
+    {
+      "type": 4,
+      "name": "British Antarctic Territory",
+      "code": "080",
+      "iso3166": "ATB",
+      "historical": true,
+      "sources": [
+        {"source": "m49-1970", "page": 10},
+        {"source": "m49-1975", "page": 7}
+      ]
+    },
+    {
+      "type": 4,
+      "name": "Dronning Maud Land",
+      "code": "216",
+      "iso3166": "ATN",
+      "historical": true,
+      "sources": [{"source": "m49-1975", "page": 8}]
+    },
+    {
+      "type": 4,
+      "name": "Germany, East Berlin",
+      "code": "282",
+      "historical": true,
+      "sources": [{"source": "m49-1970", "page": 12}]
+    },
+    {
+      "type": 4,
+      "name": "Germany, West Berlin",
+      "code": "284",
+      "historical": true,
+      "sources": [{"source": "m49-1970", "page": 12}]
+    },
+    {
+      "type": 4,
+      "name": "Neutral Zone",
+      "code": "536",
+      "iso3166": "NTZ",
+      "historical": true,
+      "sources": [
+        {"source": "m49-1970", "page": 14},
+        {"source": "m49-1975", "page": 11}
+      ]
+    },
+    {
+      "type": 4,
+      "name": "New Guinea (Trust Territory)",
+      "code": "544",
+      "historical": true,
+      "sources": [{"source": "m49-1970", "page": 14}]
+    },
+    {
+      "type": 4,
+      "name": "Panama [excluding Canal Zone]",
+      "code": "590",
+      "iso3166": "PAN",
+      "historical": true,
+      "sources": [
+        {"source": "m49-1970", "page": 14},
+        {"source": "m49-1975", "page": 11}
+      ]
+    },
+    {
+      "type": 4,
+      "name": "Panama Canal Zone",
+      "code": "592",
+      "iso3166": "PCZ",
+      "historical": true,
+      "sources": [
+        {"source": "m49-1970", "page": 14},
+        {"source": "m49-1975", "page": 11}
+      ]
+    },
+    {
+      "type": 4,
+      "name": "Papua",
+      "code": "596",
+      "historical": true,
+      "sources": [{"source": "m49-1970", "page": 14}]
+    },
+    {
+      "type": 4,
+      "name": "Ryukyu Islands",
+      "code": "650",
+      "historical": true,
+      "sources": [{"source": "m49-1970", "page": 15}]
+    },
+    {
+      "type": 4,
+      "name": "St. Kitts-Nevis-Anguilla",
+      "code": "658",
+      "iso3166": "KNA",
+      "historical": true,
+      "sources": [
+        {"source": "m49-1970", "page": 15},
+        {"source": "m49-1975", "page": 12}
+      ]
+    },
+    {
+      "type": 4,
+      "name": "Sikkim",
+      "code": "698",
+      "historical": true,
+      "sources": [{"source": "m49-1970", "page": 15}]
+    },
+    {
+      "type": 4,
+      "name": "Viet-Nam, Republic of",
+      "code": "868",
+      "iso3166": "VNM",
+      "historical": true,
+      "sources": [
+        {"source": "m49-1970", "page": 16},
+        {"source": "m49-1975", "page": 13}
+      ]
+    }
+  ],
+  "reusedCodes": [
+    {
+      "code": "728",
+      "historicalName": "Spanish North Africa",
+      "currentName": "South Sudan",
+      "sources": [{"source": "m49-1970", "page": 15}]
+    },
+    {
+      "code": "784",
+      "historicalName": "Trucial Oman",
+      "currentName": "United Arab Emirates",
+      "sources": [{"source": "m49-1970", "page": 16}]
+    },
+    {
+      "code": "818",
+      "historicalName": "United Arab Republic",
+      "currentName": "Egypt",
+      "sources": [{"source": "m49-1970", "page": 16}]
+    }
+  ]
+}

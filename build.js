@@ -28,6 +28,7 @@ import fetch from 'node-fetch'
 import {fromHtml} from 'hast-util-from-html'
 import {select, selectAll} from 'hast-util-select'
 import {toString} from 'hast-util-to-string'
+import {provenance} from './historical-provenance.js'
 
 /** @type {Record<string, string>} */
 const headerToField = {
@@ -212,6 +213,19 @@ for (const heading of [
       }
     }
   }
+}
+
+// The current UN methodology page does not contain every retired code from
+// the five official M49 editions.  Add the non-conflicting omissions from the
+// audited provenance manifest instead of editing generated output.
+for (const supplemental of provenance.supplementalEntries) {
+  const {sources, ...entry} = supplemental
+  assert(sources.length > 0, 'expected provenance for `' + entry.code + '`')
+  assert(
+    !(entry.code in byCode),
+    'expected supplemental code `' + entry.code + '`'
+  )
+  byCode[entry.code] = {...entry, stack: []}
 }
 
 /** @type {Record<string, string>} */

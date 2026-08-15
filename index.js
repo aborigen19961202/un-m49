@@ -336,6 +336,13 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'British Antarctic Territory',
+    code: '080',
+    iso3166: 'ATB',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Belize',
     code: '084',
     iso3166: 'BLZ',
@@ -650,6 +657,13 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Dronning Maud Land',
+    code: '216',
+    iso3166: 'ATN',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Ecuador',
     code: '218',
     iso3166: 'ECU',
@@ -827,6 +841,18 @@ export const unM49 = [
     name: 'Federal Republic of Germany',
     code: '280',
     iso3166: 'DEU',
+    historical: true
+  },
+  {
+    type: 4,
+    name: 'Germany, East Berlin',
+    code: '282',
+    historical: true
+  },
+  {
+    type: 4,
+    name: 'Germany, West Berlin',
+    code: '284',
     historical: true
   },
   {
@@ -1362,10 +1388,23 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Neutral Zone',
+    code: '536',
+    iso3166: 'NTZ',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'New Caledonia',
     code: '540',
     iso3166: 'NCL',
     parent: '054'
+  },
+  {
+    type: 4,
+    name: 'New Guinea (Trust Territory)',
+    code: '544',
+    historical: true
   },
   {
     type: 4,
@@ -1474,10 +1513,30 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Panama [excluding Canal Zone]',
+    code: '590',
+    iso3166: 'PAN',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Panama',
     code: '591',
     iso3166: 'PAN',
     parent: '013'
+  },
+  {
+    type: 4,
+    name: 'Panama Canal Zone',
+    code: '592',
+    iso3166: 'PCZ',
+    historical: true
+  },
+  {
+    type: 4,
+    name: 'Papua',
+    code: '596',
+    historical: true
   },
   {
     type: 4,
@@ -1586,6 +1645,12 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Ryukyu Islands',
+    code: '650',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Saint Barthélemy',
     code: '652',
     iso3166: 'BLM',
@@ -1597,6 +1662,13 @@ export const unM49 = [
     code: '654',
     iso3166: 'SHN',
     parent: '011'
+  },
+  {
+    type: 4,
+    name: 'St. Kitts-Nevis-Anguilla',
+    code: '658',
+    iso3166: 'KNA',
+    historical: true
   },
   {
     type: 4,
@@ -1694,6 +1766,12 @@ export const unM49 = [
     code: '694',
     iso3166: 'SLE',
     parent: '011'
+  },
+  {
+    type: 4,
+    name: 'Sikkim',
+    code: '698',
+    historical: true
   },
   {
     type: 4,
@@ -2039,6 +2117,13 @@ export const unM49 = [
   },
   {
     type: 4,
+    name: 'Viet-Nam, Republic of',
+    code: '868',
+    iso3166: 'VNM',
+    historical: true
+  },
+  {
+    type: 4,
     name: 'Wake Island',
     code: '872',
     iso3166: 'WAK',
@@ -2134,6 +2219,7 @@ export const toIso3166 = {
   208: 'DNK',
   212: 'DMA',
   214: 'DOM',
+  216: 'ATN',
   218: 'ECU',
   222: 'SLV',
   226: 'GNQ',
@@ -2234,6 +2320,7 @@ export const toIso3166 = {
   533: 'ABW',
   534: 'SXM',
   535: 'BES',
+  536: 'NTZ',
   540: 'NCL',
   548: 'VUT',
   554: 'NZL',
@@ -2250,7 +2337,9 @@ export const toIso3166 = {
   584: 'MHL',
   585: 'PLW',
   586: 'PAK',
+  590: 'PAN',
   591: 'PAN',
+  592: 'PCZ',
   598: 'PNG',
   600: 'PRY',
   604: 'PER',
@@ -2268,6 +2357,7 @@ export const toIso3166 = {
   646: 'RWA',
   652: 'BLM',
   654: 'SHN',
+  658: 'KNA',
   659: 'KNA',
   660: 'AIA',
   662: 'LCA',
@@ -2329,6 +2419,7 @@ export const toIso3166 = {
   858: 'URY',
   860: 'UZB',
   862: 'VEN',
+  868: 'VNM',
   872: 'WAK',
   876: 'WLF',
   882: 'WSM',
@@ -2362,6 +2453,7 @@ export const toIso3166 = {
   '072': 'BWA',
   '074': 'BVT',
   '076': 'BRA',
+  '080': 'ATB',
   '084': 'BLZ',
   '086': 'IOT',
   '090': 'SLB',

@@ -38,4 +38,22 @@ test('m49', function () {
     })
     assert.equal(toIso3166[code], iso3166)
   }
+
+  const earlyEditions = [
+    ['536', 'Neutral Zone', 'NTZ'],
+    ['592', 'Panama Canal Zone', 'PCZ']
+  ]
+
+  for (const [code, name, iso3166] of earlyEditions) {
+    const entry = unM49.find((d) => d.code === code)
+    assert(entry)
+    assert.deepEqual(entry, {
+      type: 4,
+      name,
+      code,
+      iso3166,
+      historical: true
+    })
+    assert.equal(toIso3166[code], iso3166)
+  }
 })

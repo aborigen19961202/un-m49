@@ -1,11 +1,13 @@
-# un-m49
+# un-m49 with historical codes
 
 [![Build][build-badge]][build]
-[![Coverage][coverage-badge]][coverage]
-[![Downloads][downloads-badge]][downloads]
-[![Size][size-badge]][size]
 
-Info on [UN M49][m49].
+Machine-friendly current and official historical [UN M49][m49] codes.
+
+This is a community fork of [`wooorm/un-m49`][upstream].  It preserves the
+original API while adding retired country and area codes from official United
+Nations publications.  The npm package named `un-m49` still refers to the
+upstream project and does not contain these additions.
 
 ## Contents
 
@@ -16,6 +18,7 @@ Info on [UN M49][m49].
 *   [API](#api)
     *   [`unM49`](#unm49)
     *   [`toIso3166`](#toiso3166)
+*   [Sources and historical coverage](#sources-and-historical-coverage)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
 *   [Security](#security)
@@ -25,10 +28,9 @@ Info on [UN M49][m49].
 
 ## What is this?
 
-This package contains info on UN M49 (Standard Country or Area Codes for
-Statistical Use).
-This fork also includes the historical and retired codes officially listed by
-the United Nations, such as `200` (Czechoslovakia), `810` (USSR), and `890`
+This package contains current and historical UN M49 (Standard Country or Area
+Codes for Statistical Use).  Historical examples include `200`
+(Czechoslovakia), `278` (German Democratic Republic), `810` (USSR), and `890`
 (Socialist Federal Republic of Yugoslavia).
 UN M49 is similar to ISO 3166 (the `GB` in `en-GB`).
 The difference is that ISO 3166 uses alphabetical codes based on how a region is
@@ -46,25 +48,11 @@ particular.
 
 ## Install
 
-This package is [ESM only][esm].
-In Node.js (version 14.14+, 16.0+), install with [npm][]:
+This package is [ESM only][esm].  Until this fork is published under a distinct
+npm name, install it directly from GitHub:
 
 ```sh
-npm install un-m49
-```
-
-In Deno with [`esm.sh`][esmsh]:
-
-```js
-import {unM49, toIso3166} from 'https://esm.sh/un-m49@2'
-```
-
-In browsers with [`esm.sh`][esmsh]:
-
-```html
-<script type="module">
-  import {unM49, toIso3166} from 'https://esm.sh/un-m49@2?bundle'
-</script>
+npm install github:aborigen19961202/un-m49
 ```
 
 ## Use
@@ -159,6 +147,28 @@ Map of current and historical UN M49 codes to ISO 3166-1 alpha-3 codes
 (`Record<string, string>`), where the United Nations publishes an unambiguous
 mapping.
 
+## Sources and historical coverage
+
+The build combines the current [UN M49 overview][m49-overview], the retired
+tables on the [UN M49 methodology page][m49], and all five official editions
+published in 1970, 1975, 1982, 1996, and 1999.  Early retired codes missing from
+the current web tables are stored with page-level references in the
+machine-readable [`data/historical-provenance.json`][provenance] file and are
+merged by `build.js`.
+
+Run `npm run audit` to validate the provenance against the generated dataset.
+Run `npm run audit-sources` to additionally download the five official UN PDFs
+and verify their recorded SHA-256 checksums.  The first three editions are image
+scans, so their small page-referenced transcription is checked in instead of
+making the build depend on nondeterministic OCR.
+
+Some numerical codes were later reassigned to a different entity.  For example,
+`728` meant Spanish North Africa in the 1970 edition and means South Sudan in
+the current dataset.  Such collisions are listed as `reusedCodes` in the
+provenance file but are not emitted as duplicate `unM49` entries, because
+`toIso3166` can contain only one value per numerical code.  This preserves the
+current API and makes the limitation explicit.
+
 ## Types
 
 This package is fully typed with [TypeScript][].
@@ -166,9 +176,8 @@ It exports the additional types `Type` and `UNM49`.
 
 ## Compatibility
 
-This package is at least compatible with all maintained versions of Node.js.
-As of now, that is Node.js 14.14+ and 16.0+.
-It also works in Deno and modern browsers.
+Use a maintained Node.js release.  The generated module has no runtime
+dependencies and also works in modern ESM-compatible runtimes and browsers.
 
 ## Security
 
@@ -202,25 +211,11 @@ See [How to Contribute to Open Source][contribute].
 
 <!-- Definition -->
 
-[build-badge]: https://github.com/wooorm/un-m49/workflows/main/badge.svg
+[build-badge]: https://github.com/aborigen19961202/un-m49/actions/workflows/main.yml/badge.svg
 
-[build]: https://github.com/wooorm/un-m49/actions
+[build]: https://github.com/aborigen19961202/un-m49/actions
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/un-m49.svg
-
-[coverage]: https://codecov.io/github/wooorm/un-m49
-
-[downloads-badge]: https://img.shields.io/npm/dm/un-m49.svg
-
-[downloads]: https://www.npmjs.com/package/un-m49
-
-[size-badge]: https://img.shields.io/bundlephobia/minzip/un-m49.svg
-
-[size]: https://bundlephobia.com/result?p=un-m49
-
-[npm]: https://docs.npmjs.com/cli/install
-
-[esmsh]: https://esm.sh
+[upstream]: https://github.com/wooorm/un-m49
 
 [license]: license
 
@@ -233,6 +228,10 @@ See [How to Contribute to Open Source][contribute].
 [contribute]: https://opensource.guide/how-to-contribute/
 
 [m49]: https://unstats.un.org/unsd/methodology/m49/
+
+[m49-overview]: https://unstats.un.org/unsd/methodology/m49/overview/
+
+[provenance]: data/historical-provenance.json
 
 [region]: #region
 

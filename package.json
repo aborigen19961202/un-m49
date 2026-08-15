@@ -1,7 +1,7 @@
 {
   "name": "un-m49",
-  "version": "2.2.0",
-  "description": "Info on UN M49",
+  "version": "2.3.0",
+  "description": "Current and official historical UN M49 codes",
   "license": "MIT",
   "keywords": [
     "un-m49",
@@ -14,15 +14,16 @@
     "name",
     "information"
   ],
-  "repository": "wooorm/un-m49",
-  "bugs": "https://github.com/wooorm/un-m49/issues",
+  "repository": "aborigen19961202/un-m49",
+  "bugs": "https://github.com/aborigen19961202/un-m49/issues",
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/wooorm"
   },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+    "aborigen19961202 (https://github.com/aborigen19961202)"
   ],
   "sideEffects": false,
   "type": "module",
@@ -47,13 +48,15 @@
     "xo": "^0.56.0"
   },
   "scripts": {
-    "prepack": "npm run build && npm run format",
+    "audit": "node --conditions development audit.js",
+    "audit-sources": "node --conditions development audit.js --fetch",
+    "prepack": "npm run generate && npm run build && npm run format",
     "generate": "node --conditions development build.js",
     "build": "tsc --build --clean && tsc --build && type-coverage",
     "format": "remark . -qfo && prettier . -w --log-level warn && xo --fix",
     "test-api": "node --conditions development test.js",
     "test-coverage": "c8 --check-coverage --100 --reporter lcov npm run test-api",
-    "test": "npm run generate && npm run build && npm run format && npm run test-coverage"
+    "test": "npm run generate && npm run audit && npm run build && npm run format && npm run test-coverage"
   },
   "prettier": {
     "tabWidth": 2,
